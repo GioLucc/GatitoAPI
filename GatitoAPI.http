@@ -1,0 +1,6 @@
+@GatitoAPI_HostAddress = http://localhost:5014
+
+GET {{GatitoAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
