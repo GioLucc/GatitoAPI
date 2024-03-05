@@ -465,11 +465,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Visual Studio Code Workspace\\GatitoAPI\\GatitoAPI\\GatitoAPI.csproj",
+      "projectUniqueName": "C:\\Visual Studio Code Workspace\\GatitoAPI Github\\GatitoAPI\\GatitoAPI.csproj",
       "projectName": "GatitoAPI",
-      "projectPath": "C:\\Visual Studio Code Workspace\\GatitoAPI\\GatitoAPI\\GatitoAPI.csproj",
+      "projectPath": "C:\\Visual Studio Code Workspace\\GatitoAPI Github\\GatitoAPI\\GatitoAPI.csproj",
       "packagesPath": "C:\\Users\\Tano\\.nuget\\packages\\",
-      "outputPath": "C:\\Visual Studio Code Workspace\\GatitoAPI\\GatitoAPI\\obj\\",
+      "outputPath": "C:\\Visual Studio Code Workspace\\GatitoAPI Github\\GatitoAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tano\\AppData\\Roaming\\NuGet\\NuGet.Config",
