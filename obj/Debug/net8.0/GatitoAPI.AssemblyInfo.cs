@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GatitoAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ad99f37de9df9a302d703bf884d49fb4992e079")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0f14df8cf1403829e35c417d790f8303a00e124")]
 [assembly: System.Reflection.AssemblyProductAttribute("GatitoAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GatitoAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

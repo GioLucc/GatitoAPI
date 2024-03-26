@@ -7,7 +7,7 @@ namespace GatitoAPI.Controllers;
 //Data Anotation
 [ApiController]
 // [controller] cuts this word from the class
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class GatitoController : ControllerBase
 {
 
@@ -45,28 +45,34 @@ public class GatitoController : ControllerBase
 
     [HttpPost]
     //Action Post
-    public ActionResult<Gatito> PostMandril(GatitoInsert gatitoInsert)
+    public ActionResult<Gatito> AddGatito(ModelsDTO.GatitoInsert gatitoInsert)
     {
         var maxGatitoId = GatitoDataStore.Current.Gatitos.Max(x => x.Id);
 
-        var gatitoNuevo = new Gatito()
+        if(ModelState.IsValid)
         {
-            Id = maxGatitoId + 1,
-            Nombre = gatitoInsert.Nombre,
-            Apellido = gatitoInsert.Apellido
-        };
+            var gatitoNuevo = new Gatito()
+            {
+                Id = maxGatitoId + 1,
+                Nombre = gatitoInsert.Nombre,
+                Apellido = gatitoInsert.Apellido
+            };
 
-        GatitoDataStore.Current.Gatitos.Add(gatitoNuevo);
+            GatitoDataStore.Current.Gatitos.Add(gatitoNuevo);
 
-        return CreatedAtAction(nameof(GetGatito),
-            new { gatitoId = gatitoNuevo.Id },
-            gatitoNuevo
-        );
+            return CreatedAtAction(nameof(GetGatito),
+                new { gatitoId = gatitoNuevo.Id },
+                gatitoNuevo
+            );
+        }
+        else
+            return BadRequest("No se pudo crear un gatito");
+        
 
     }
     [HttpPut("{gatitoId}")]
     //Action Put
-    public ActionResult<Gatito> PutGatito(int gatitoId, GatitoInsert gatitoInsert)
+    public ActionResult<Gatito> PutGatito(int gatitoId,ModelsDTO.GatitoInsert gatitoInsert)
     {
         var gatito = GatitoDataStore.Current.Gatitos.FirstOrDefault(x => x.Id == gatitoId);
 
@@ -83,13 +89,14 @@ public class GatitoController : ControllerBase
     //Action delete
     public ActionResult<Gatito> DeleteGatito(int gatitoId)
     {
+        string mensajeExito = "El gatito se ha removido correctamente";
         var gatito = GatitoDataStore.Current.Gatitos.FirstOrDefault(x => x.Id == gatitoId);
 
         if (gatito == null)
             return NotFound("El Gatito solicitado no existe.");
         
         GatitoDataStore.Current.Gatitos.Remove(gatito);
-        return NoContent();
+        return Ok(mensajeExito);
 
     }
 }

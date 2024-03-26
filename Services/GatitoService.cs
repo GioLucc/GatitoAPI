@@ -2,7 +2,7 @@
 
 namespace GatitoAPI.Services;
 
-public class GatitoDataStore
+public class GatitoDataStore : IGatitoService
 {
     public List<Gatito> Gatitos { get; set; }
 
@@ -90,4 +90,10 @@ public class GatitoDataStore
         };
 
     }
+
+    public Task<Gatito> AddGatito(Gatito gatito)
+    {
+        throw new NotImplementedException();
+    }
 }
+

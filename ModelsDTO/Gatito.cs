@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GatitoAPI;
+namespace ModelsDTO;
 
 public class GatitoInsert
 {
