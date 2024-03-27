@@ -15,14 +15,14 @@ public class GatitoController : ControllerBase
     //Action GET
     public ActionResult<IEnumerable<Gatito>> GetGatitos()
     {
-        return Ok(GatitoDataStore.Current.Gatitos);
+        return Ok(GatitoService.Current.Gatitos);
     }
 
     [HttpGet("{gatitoId}")]
     //Action GET
     public ActionResult<IEnumerable<Gatito>> GetGatito(int gatitoId)
     {
-        var gatito = GatitoDataStore.Current.Gatitos.FirstOrDefault(x => x.Id == gatitoId);
+        var gatito = GatitoService.Current.Gatitos.FirstOrDefault(x => x.Id == gatitoId);
 
         if (gatito == null)
             return NotFound("El Gatito solicitado no existe.");
@@ -45,20 +45,20 @@ public class GatitoController : ControllerBase
 
     [HttpPost]
     //Action Post
-    public ActionResult<Gatito> AddGatito(ModelsDTO.GatitoInsert gatitoInsert)
+    public ActionResult<Gatito> AddGatito(ModelsDTO.GatitoInsert gatito)
     {
-        var maxGatitoId = GatitoDataStore.Current.Gatitos.Max(x => x.Id);
+        var maxGatitoId = GatitoService.Current.Gatitos.Max(x => x.Id);
 
         if(ModelState.IsValid)
         {
             var gatitoNuevo = new Gatito()
             {
                 Id = maxGatitoId + 1,
-                Nombre = gatitoInsert.Nombre,
-                Apellido = gatitoInsert.Apellido
+                Nombre = gatito.Nombre,
+                Apellido = gatito.Apellido
             };
 
-            GatitoDataStore.Current.Gatitos.Add(gatitoNuevo);
+            GatitoService.Current.Gatitos.Add(gatitoNuevo);
 
             return CreatedAtAction(nameof(GetGatito),
                 new { gatitoId = gatitoNuevo.Id },
@@ -67,14 +67,13 @@ public class GatitoController : ControllerBase
         }
         else
             return BadRequest("No se pudo crear un gatito");
-        
-
     }
+
     [HttpPut("{gatitoId}")]
     //Action Put
     public ActionResult<Gatito> PutGatito(int gatitoId,ModelsDTO.GatitoInsert gatitoInsert)
     {
-        var gatito = GatitoDataStore.Current.Gatitos.FirstOrDefault(x => x.Id == gatitoId);
+        var gatito = GatitoService.Current.Gatitos.FirstOrDefault(x => x.Id == gatitoId);
 
         if (gatito == null)
             return NotFound("El Gatito solicitado no existe.");
@@ -90,13 +89,12 @@ public class GatitoController : ControllerBase
     public ActionResult<Gatito> DeleteGatito(int gatitoId)
     {
         string mensajeExito = "El gatito se ha removido correctamente";
-        var gatito = GatitoDataStore.Current.Gatitos.FirstOrDefault(x => x.Id == gatitoId);
+        var gatito = GatitoService.Current.Gatitos.FirstOrDefault(x => x.Id == gatitoId);
 
         if (gatito == null)
             return NotFound("El Gatito solicitado no existe.");
         
-        GatitoDataStore.Current.Gatitos.Remove(gatito);
+        GatitoService.Current.Gatitos.Remove(gatito);
         return Ok(mensajeExito);
-
     }
 }

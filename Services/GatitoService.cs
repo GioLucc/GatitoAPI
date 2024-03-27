@@ -2,14 +2,16 @@
 
 namespace GatitoAPI.Services;
 
-public class GatitoDataStore : IGatitoService
+public class GatitoService : IGatitoService
 {
     public List<Gatito> Gatitos { get; set; }
+    private GatitoDbContext _dbContext;
 
     // Singleton
-    public static GatitoDataStore Current { get; } = new GatitoDataStore();
-    public GatitoDataStore()
+    public static GatitoService Current { get; } = new GatitoService();
+    public GatitoService(GatitoDbContext dbContext)
     {
+        _dbContext = dbContext;
         Gatitos = new List<Gatito>()
         {
             new Gatito()
@@ -91,9 +93,17 @@ public class GatitoDataStore : IGatitoService
 
     }
 
-    public Task<Gatito> AddGatito(Gatito gatito)
+    public async Task<Gatito> AddGatito(Gatito gatito)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var gatitoAniadido = await this.
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 }
 

@@ -65,3 +65,5 @@ C:\Visual Studio Code Workspace\GatitoAPI Github\GatitoAPI\obj\Debug\net8.0\refi
 C:\Visual Studio Code Workspace\GatitoAPI Github\GatitoAPI\obj\Debug\net8.0\GatitoAPI.pdb
 C:\Visual Studio Code Workspace\GatitoAPI Github\GatitoAPI\obj\Debug\net8.0\GatitoAPI.genruntimeconfig.cache
 C:\Visual Studio Code Workspace\GatitoAPI Github\GatitoAPI\obj\Debug\net8.0\ref\GatitoAPI.dll
+C:\Visual Studio Code Workspace\GatitoAPI Github\GatitoAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Visual Studio Code Workspace\GatitoAPI Github\GatitoAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
